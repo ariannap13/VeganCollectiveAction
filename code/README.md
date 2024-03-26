@@ -1,13 +1,14 @@
 # ReadMe
 
-This file serves as a documentation of the code related to the paper "The Role of Discourse Narratives in Shaping Collective Action:
-Plant-Based Challenges on YouTube as a Case Study".
+This file serves as a documentation of the code related to the paper "Narratives of Collective Action in YouTube's Discourse on Veganism", accepted at ICWSM 2024.
 
 ## Packages
 
 All analyses were run on Python 3.8.16. Required libraries and versions are specified in `requirements.txt`.
 
 ## Overall pipeline
+
+All scripts and notebooks are in the `code` folder.
 
 ### Video data collection and cleaning
 
@@ -18,17 +19,17 @@ All analyses were run on Python 3.8.16. Required libraries and versions are spec
 5. **topic_modeling.py**: Topic modeling, excluding topic not relevant to the theoretical narrative framework.
 6. **get_yt_videos_baseline.py**: Get YouTube videos for the baseline set.
 
-### Narrative mapping
+### Narrative mapping 
 
 7. **extract_mformer.py**: Extract moral dimensions scores through `mformer` for the target video set or the baseline video set, given a dataset of reference (i.e. challenge).
 8. **clustering.ipynb**: Scale moral scores with baseline, merge data and extract collective identity scores to map video into *communal-oriented* and *agency-oriented*. Then, use UMAP and HDBSCAN clusters to extract narrative groups.
 
-### Comments data collection and cleaning
+### Comments data collection and cleaning 
 
 9. **get_video_comments_ids.py**: Get video IDs for which to extract comments based on those videos mapped to the theoretical framework.
 10. **get_yt_comments.py**: Get YouTube comments.
 
-### Reactions analysis
+### Reactions analysis 
 
 11. **extract_language_metrics.py**: extract relative frequency of collective action markers from comments.
 12. **analyze_language_metrics.ipynb**: Language metrics analysis.
@@ -39,3 +40,13 @@ All analyses were run on Python 3.8.16. Required libraries and versions are spec
 
 ### General comments
 The file `utils.py` contains useful functions that are imported throughout the pipeline.
+
+## Data
+
+Data is provided in the `data` folder. 
+
+Specifically, we share the following data:
+
+- **dataset.csv**: file referencing the videos used for the analysis (only the video ID is provided), in terms of general YouTube stats, mapping to narrative types and paper-specific metric we computed.
+- **challenge_video_ids.csv**: list of baseline videos ids considered for the specific challenge.
+- **youtube_comments_cleaned.json**: json file containing the list of comments retrieved for each of the reference videos.

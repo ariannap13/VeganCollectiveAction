@@ -67,19 +67,19 @@ else:
             retrieved_videos = pickle.load(token)
         df_all.append(retrieved_videos)
 
-retrieved_videos = pd.concat(df_all)
+    retrieved_videos = pd.concat(df_all)
 
 # filter out None values in Video Transcript column
 retrieved_videos = retrieved_videos[retrieved_videos["Video Transcript"].notnull()]
 
 # filter by topic - select only video related to the challenge or to the vegan lifestyle, delete recipes
-retrieved_videos = retrieved_videos[retrieved_videos["topic"]==topic_n] 
+if not is_baseline:
+    retrieved_videos = retrieved_videos[retrieved_videos["topic"]==topic_n] 
 
 # apply clean function to Video Transcript column
 retrieved_videos['Video Transcript Clean'] = retrieved_videos['Video Transcript'].apply(lambda x: clean_text(x))
 # remove all rows for which Video Transcript Clean is empty and reset index
 retrieved_videos = retrieved_videos[retrieved_videos['Video Transcript Clean'] != ''].reset_index(drop=True)
-
 
 #### Score texts ####
 
