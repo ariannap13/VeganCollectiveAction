@@ -47,5 +47,5 @@ Data is provided in the `data` folder.
 Specifically, we share the following data:
 
 - **dataset.csv**: file referencing the videos used for the analysis (only the video ID is provided), in terms of general YouTube stats, mapping to narrative types and paper-specific metric we computed.
-- **challenge_video_ids.csv**: list of baseline videos ids considered for the specific challenge.
-- **youtube_comments_cleaned.json**: json file containing the list of comments retrieved for each of the reference videos.
+- ***challenge*_baseline_video_ids.csv**: list of baseline videos ids considered for the specific *challenge*.
+- **all_comments_cleaned.json**: json file containing the list of comments retrieved for each of the reference videos.
