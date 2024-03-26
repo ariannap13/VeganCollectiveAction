@@ -1,6 +1,6 @@
 # ReadMe
 
-This file serves as a documentation of the code related to the paper "Narratives of Collective Action in YouTube's Discourse on Veganism", accepted at ICWSM 2024.
+This file serves as a documentation of the code related to the paper "Narratives of Collective Action in YouTube's Discourse on Veganism" by Arianna Pera and Luca Aiello, accepted at ICWSM 2024.
 
 ## Packages
 
