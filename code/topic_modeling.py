@@ -39,7 +39,7 @@ def get_top_words(model, feature_names, n_top_words):
 # create a dataframe by concatenating all the dataframes for each year  
 retrieved_videos = pd.DataFrame()
 for year in range(2014, 2024):
-    with open("./data/"+tag+"/retrieved_allvideos_"+str(year)+".pickle", "rb") as token:
+    with open("../data/"+tag+"/retrieved_allvideos_"+str(year)+".pickle", "rb") as token:
         retrieved_videos_year = pickle.load(token)
     retrieved_videos = pd.concat([retrieved_videos, retrieved_videos_year], ignore_index=True)
 
@@ -84,7 +84,7 @@ retrieved_videos["clean_transcript"] = tokens
 
 ### Perform LDA topic modeling ####
 
-# Step 1: Create Document-Term Matrix
+# Create Document-Term Matrix
 vectorizer = CountVectorizer(max_df=0.5,min_df=5)
 
 # Fit and transform your text data
@@ -113,4 +113,4 @@ retrieved_videos['topic'] = topic_id
 retrieved_videos['topic_of_reference_words'] = retrieved_videos['topic'].apply(lambda x: topic_list[x])
 
 # save dataframe as pickle file
-retrieved_videos.to_pickle("./data/"+tag+"/retrieved_videos_all_topic.pickle")
+retrieved_videos.to_pickle("../data/"+tag+"/retrieved_videos_all_topic.pickle")

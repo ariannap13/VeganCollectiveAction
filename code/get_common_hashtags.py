@@ -14,7 +14,7 @@ all_hashtags = []
 for year in years:
     
     # load the retrieved videos for the year
-    with open("./data/"+tag+"/retrieved_target_video_"+str(year)+"_key_"+basic_keyword+".pickle", "rb") as token:    
+    with open("../data/"+tag+"/retrieved_target_video_"+str(year)+"_key_"+basic_keyword+".pickle", "rb") as token:    
         retrieved_videos = pickle.load(token)
 
     # find hashtags in Video Description column 
@@ -51,7 +51,7 @@ df = pd.DataFrame.from_dict(merged_hashtags, orient='index', columns=["frequency
 df = df.sort_values(by="frequency", ascending=False)
 
 # save the dataframe
-df.to_csv("./data/"+tag+"/common_hashtags_"+basic_keyword+".csv")
+df.to_csv("../data/"+tag+"/common_hashtags_"+basic_keyword+".csv")
 
 
 

@@ -9,8 +9,8 @@ from utils import youtube_authenticate, get_video_comments
 tag = "nomeatmay"
 
 # if comments folder does not exist, create it
-if not Path("./data/comments").exists():
-    Path("./data/comments").mkdir()
+if not Path("../data/comments").exists():
+    Path("../data/comments").mkdir()
 
 # define scopes for API access
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
@@ -21,7 +21,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 youtube = youtube_authenticate(SCOPES)
 
 # open transcript file
-df_videos = pd.read_csv("./data/"+tag+"/video_ids_mformer.csv")
+df_videos = pd.read_csv("../data/"+tag+"/video_ids_mformer.csv")
 
 # remove possible duplicates
 df_videos = df_videos.drop_duplicates(subset="Video ID")
@@ -36,8 +36,8 @@ all_data = []
 for video_id in video_ids:
 
     # if json file already exists, open
-    if Path(f"./data/comments/"+tag+".json").exists():
-        with open(f"./data/comments/"+tag+".json", "r") as f:
+    if Path(f"../data/comments/"+tag+".json").exists():
+        with open(f"../data/comments/"+tag+".json", "r") as f:
             all_data = json.load(f) # in this way, we will overwrite the json file if we run the script again
         
         # if video already in json, skip
@@ -64,5 +64,5 @@ for video_id in video_ids:
         print("N. videos:", iter_videos ,"/", len(video_ids))
 
     # save as json
-    with open("./data/comments/"+tag+".json", "w") as f:
+    with open("../data/comments/"+tag+".json", "w") as f:
         json.dump(all_data, f, indent=4)

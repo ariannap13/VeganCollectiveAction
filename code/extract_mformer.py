@@ -14,7 +14,7 @@ from utils import clean_text
 tag = "nomeatmay"
 topic_n = 1 # define according to the topic you want to analyze from topic_modeling.py exploration
 
-data_path = "./data/"+tag+"/"
+data_path = "../data/"+tag+"/"
 is_baseline = False
 text_col = "Video Transcript Clean"
 verbose = True

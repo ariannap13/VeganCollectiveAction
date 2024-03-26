@@ -3,7 +3,7 @@ import pandas as pd
 
 #### Define tag ####
 tag = "nomeatmay"
-dir = "./data/"+tag+"/"
+dir = "../data/"+tag+"/"
 
 #### Get list of video ids for easier comments retrieval ####
 

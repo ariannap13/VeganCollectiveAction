@@ -73,9 +73,9 @@ def get_coll_action(df, text_column):
 
 # read comments
 data = []
-for file in os.listdir("./data/comments/"):
+for file in os.listdir("../data/comments/"):
     if file.endswith(".json"):
-        with open("./data/comments/"+file, "r") as f:
+        with open("../data/comments/"+file, "r") as f:
             data.append(json.load(f))
 
 data = [item for sublist in data for item in sublist] 
@@ -104,7 +104,7 @@ tot_n_videos = 0
 ### agency-oriented
 
 ## load data
-for file in os.listdir("./data/examples"):
+for file in os.listdir("../data/examples"):
     if file.startswith("self_mformer_wisescale_all_noscaled0"):
 
         # time
@@ -114,7 +114,7 @@ for file in os.listdir("./data/examples"):
         cluster_label = file.split("_")[-1].split(".")[0]
 
         # read file videos as dataframe from csv
-        data_videos = pd.read_csv("./data/examples/" + file)
+        data_videos = pd.read_csv("../data/examples/" + file)
 
         # remove duplicate videos
         data_videos = data_videos.drop_duplicates(subset="Video ID")
@@ -156,7 +156,7 @@ for file in os.listdir("./data/examples"):
 ### communal-oriented
         
 ## load data
-for file in os.listdir("./data/examples"):
+for file in os.listdir("../data/examples"):
     if file.startswith("group_mformer_wisescale_all_noscaled0"):
 
         # time
@@ -166,7 +166,7 @@ for file in os.listdir("./data/examples"):
         cluster_label = file.split("_")[-1].split(".")[0]
 
         # read file videos as dataframe from csv
-        data_videos = pd.read_csv("./data/examples/" + file)
+        data_videos = pd.read_csv("../data/examples/" + file)
 
         # remove duplicate videos
         data_videos = data_videos.drop_duplicates(subset="Video ID")

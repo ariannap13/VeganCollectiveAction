@@ -13,7 +13,7 @@ tag = "nomeatmay"
 for YEAR in range(2014,2024):
 
     # load the retrieved videos for the year
-    with open("./data/"+tag+"/retrieved_allvideos_"+str(YEAR)+".pickle", "rb") as token:    
+    with open("../data/"+tag+"/retrieved_allvideos_"+str(YEAR)+".pickle", "rb") as token:    
         retrieved_videos = pickle.load(token)
 
     # language filter on the description of the videos in retrieved_videos with detect from langdetect
@@ -94,5 +94,5 @@ for YEAR in range(2014,2024):
     retrieved_videos = retrieved_videos.reset_index(drop=True)
 
     # save dataframe to pickle file
-    with open("./data/"+tag+"/retrieved_allvideos_"+str(YEAR)+".pickle", "wb") as token:    
+    with open("../data/"+tag+"/retrieved_allvideos_"+str(YEAR)+".pickle", "wb") as token:    
         pickle.dump(retrieved_videos, token)

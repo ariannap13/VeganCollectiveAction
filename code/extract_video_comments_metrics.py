@@ -13,9 +13,9 @@ from utils import clean_text, clean_comments
 
 # read comments
 data = []
-for file in os.listdir("./data/comments/"):
+for file in os.listdir("../data/comments/"):
     if file.endswith(".json"):
-        with open("./data/comments/"+file, "r") as f:
+        with open("../data/comments/"+file, "r") as f:
             data.append(json.load(f))
 
 data = [item for sublist in data for item in sublist] 
@@ -50,14 +50,14 @@ with open("./embedding_data/embeddings_withtrans_comments_norm.pkl", "rb") as f:
 tot_emb_self = []
 tot_labels_self = [] 
 tot_video_ids_self = []
-for file in os.listdir("./data/examples"):
+for file in os.listdir("../data/examples"):
     if file.startswith("self_mformer_wisescale_all_noscaled0"):
 
         # retrieve cluster label
         cluster_label = file.split("_")[-1].split(".")[0]
 
         # read file videos as dataframe from csv
-        data_videos = pd.read_csv("./data/examples/" + file)
+        data_videos = pd.read_csv("../data/examples/" + file)
 
         # remove duplicate videos
         data_videos = data_videos.drop_duplicates(subset="Video ID")
@@ -141,14 +141,14 @@ df_silhouette.to_csv("./results/silhouette_scores_ids_self_all_noscaled.csv")
 tot_emb_group = []
 tot_labels_group = []
 tot_video_ids_group = []
-for file in os.listdir("./data/examples/"):
+for file in os.listdir("../data/examples/"):
     if file.startswith("group_mformer_wisescale_all_noscaled0_"):
 
         # retrieve cluster label
         cluster_label = file.split("_")[-1].split(".")[0]
 
         # read file videos as dataframe from csv
-        data_videos = pd.read_csv("./data/examples/" + file)
+        data_videos = pd.read_csv("../data/examples/" + file)
 
         # remove duplicate videos
         data_videos = data_videos.drop_duplicates(subset="Video ID")

@@ -12,12 +12,11 @@ All scripts and notebooks are in the `code` folder.
 
 ### Video data collection and cleaning
 
-1. **get_yt_videos.py**: Get YouTube videos given keywords and timeframe of reference.
+1. **get_yt_videos.py**: Get YouTube videos given keywords and timeframe of reference, or get baseline videos given timeframe of reference.
 2. **get_common_hashtags.py**: Get the most frequent hashtags in video descriptions to expand the keyword search list. Then run **get_yt_videos.py** again with new keywords to continue data collection.
-3. **merge_videos_year.py**: Get a single file per year and remove videos with music as a category.
+3. **merge_videos_year.py**: Get a single file per year.
 4. **yt_audio_to_text.py**: Whisper get transcripts from audio when not auto-captioned.
 5. **topic_modeling.py**: Topic modeling, excluding topic not relevant to the theoretical narrative framework.
-6. **get_yt_videos_baseline.py**: Get YouTube videos for the baseline set.
 
 ### Narrative mapping 
 

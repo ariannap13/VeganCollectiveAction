@@ -83,7 +83,7 @@ if not analyze_comments:
     ### video content
 
     # retrieve narratives
-    for file in os.listdir("./data/examples"):
+    for file in os.listdir("../data/examples"):
 
         # agency-oriented
         if (file.startswith("self_mformer_wisescale_all_noscaled0")) and (".csv" in file):
@@ -91,7 +91,7 @@ if not analyze_comments:
             # focus on 1 narrative at a time
             cluster_label = file.split("_")[-1].split(".")[0]
             # read file as dataframe
-            data = pd.read_csv("./data/examples/" + file)
+            data = pd.read_csv("../data/examples/" + file)
 
             data = data.drop_duplicates(subset="Video ID")
 
@@ -105,7 +105,7 @@ if not analyze_comments:
             # focus on 1 narrative at a time
             cluster_label = file.split("_")[-1].split(".")[0]
             # read file as dataframe
-            data = pd.read_csv("./data/examples/" + file)
+            data = pd.read_csv("../data/examples/" + file)
 
             data = data.drop_duplicates(subset="Video ID")
             
@@ -120,9 +120,9 @@ else:
 
     # open all comments files in data/comments
     data = []
-    for file in os.listdir("./data/comments/"):
+    for file in os.listdir("../data/comments/"):
         if file.endswith(".json"):
-            with open("./data/comments/"+file, "r") as f:
+            with open("../data/comments/"+file, "r") as f:
                 data.append(json.load(f))
 
     data = [item for sublist in data for item in sublist] 
